@@ -1,5 +1,5 @@
-src-git packages https://git.openwrt.org/feed/packages.git^49b1a6f4cc6e265cb98eb3d3225aca96079d1ec0
-src-git luci https://git.openwrt.org/project/luci.git^132c72c7b75b7c69ec713cd9c44b7566da7f052a
-src-git routing https://git.openwrt.org/feed/routing.git^e7e25b873b8ed4376cdcf82f963db34dda954f02
-src-git telephony https://git.openwrt.org/feed/telephony.git^aa1954024371e02d985b51ec4187fc0745ab4e18
+src-git-full packages https://git.openwrt.org/feed/packages.git^0b16e3f359fe9d015861596d63c5bde4c56daa2e
+src-git-full luci https://git.openwrt.org/project/luci.git^afd001293996ee6557ea14b438d95b41bd75f132
+src-git-full routing https://git.openwrt.org/feed/routing.git^25e76489c83cfcee61e36a491896e1e9bfc3ec13
+src-git-full telephony https://git.openwrt.org/feed/telephony.git^89cc8fccf757614eac1d45a684f4971393e0d984
 src-git froonix https://github.com/froonix/openwrt-packages-fnx;openwrt-21.02

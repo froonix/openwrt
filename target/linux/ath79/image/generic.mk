@@ -1603,6 +1603,19 @@ define Device/ocedo_ursus
 endef
 TARGET_DEVICES += ocedo_ursus
 
+define Device/onion_omega
+  $(Device/tplink-16mlzma)
+  SOC := ar9331
+  DEVICE_VENDOR := Onion
+  DEVICE_MODEL := Omega
+  DEVICE_PACKAGES := kmod-usb-chipidea2
+  SUPPORTED_DEVICES += onion-omega
+  KERNEL_INITRAMFS := kernel-bin | append-dtb | lzma | uImage lzma
+  IMAGE_SIZE := 16192k
+  TPLINK_HWID := 0x04700001
+endef
+TARGET_DEVICES += onion_omega
+
 define Device/openmesh_common_64k
   DEVICE_VENDOR := OpenMesh
   DEVICE_PACKAGES := uboot-envtools
@@ -1768,12 +1781,12 @@ endef
 TARGET_DEVICES += openmesh_om5p
 
 define Device/openmesh_om5p-ac-v2
+  $(Device/openmesh_common_64k)
   SOC := qca9558
-  DEVICE_VENDOR := OpenMesh
   DEVICE_MODEL := OM5P-AC
   DEVICE_VARIANT := v2
-  DEVICE_PACKAGES := kmod-ath10k-ct ath10k-firmware-qca988x-ct om-watchdog
-  IMAGE_SIZE := 7808k
+  DEVICE_PACKAGES += kmod-ath10k-ct ath10k-firmware-qca988x-ct
+  OPENMESH_CE_TYPE := OM5PAC
   SUPPORTED_DEVICES += om5p-acv2
 endef
 TARGET_DEVICES += openmesh_om5p-ac-v2
@@ -2190,6 +2203,15 @@ define Device/winchannel_wb2000
 endef
 TARGET_DEVICES += winchannel_wb2000
 
+define Device/xiaomi_aiot-ac2350
+  SOC := qca9563
+  DEVICE_VENDOR := Xiaomi
+  DEVICE_MODEL := AIoT AC2350
+  DEVICE_PACKAGES := kmod-ath10k-ct ath10k-firmware-qca9984-ct
+  IMAGE_SIZE := 14336k
+endef
+TARGET_DEVICES += xiaomi_aiot-ac2350
+
 define Device/xiaomi_mi-router-4q
   SOC := qca9561
   DEVICE_VENDOR := Xiaomi
@@ -2219,6 +2241,27 @@ define Device/yuncore_a782
   IMAGE/tftp.bin := $$(IMAGE/sysupgrade.bin) | yuncore-tftp-header-16m
 endef
 TARGET_DEVICES += yuncore_a782
+
+define Device/yuncore_a930
+  SOC := qca9533
+  DEVICE_VENDOR := YunCore
+  DEVICE_MODEL := A930
+  IMAGE_SIZE := 16000k
+  IMAGES += tftp.bin
+  IMAGE/tftp.bin := $$(IMAGE/sysupgrade.bin) | yuncore-tftp-header-16m
+endef
+TARGET_DEVICES += yuncore_a930
+
+define Device/yuncore_xd3200
+  SOC := qca9563
+  DEVICE_VENDOR := YunCore
+  DEVICE_MODEL := XD3200
+  DEVICE_PACKAGES := kmod-ath10k-ct ath10k-firmware-qca988x-ct
+  IMAGE_SIZE := 16000k
+  IMAGES += tftp.bin
+  IMAGE/tftp.bin := $$(IMAGE/sysupgrade.bin) | yuncore-tftp-header-16m
+endef
+TARGET_DEVICES += yuncore_xd3200
 
 define Device/yuncore_xd4200
   SOC := qca9563
